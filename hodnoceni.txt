@@ -1,4 +1,4 @@
-xlogin01 100 (základ GUI a základní mat. operace)
-xlogin02 100 (pokročilé mat. operace)
-xlogin03 90 (profiling, instalátor)
-xlogin04 110 (testy, dokumentace)
+xbelko02 100 (základ GUI a základní mat. operace)
+xhusca00 100 (pokročilé mat. operace)
+xjuram00 100 (profiling, instalátor)
+xlazor02 100 (testy, dokumentace)

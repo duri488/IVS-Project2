@@ -1,17 +1,16 @@
-Prostredi
+Environment
 ---------
 
-Ubuntu 64bit
 Windows 64bit
 
-Autori
+Authors
 ------
 
-Nazev tymu
-- xlogin01 jmeno prijmeni 
-- xlogin02 jmeno prijmeni 
-- xlogin03 jmeno prijmeni 
-- xlogin04 jmeno prijmeni 
+fsociety
+- xbelko02 Erik   Belko 
+- xhusca00 Marko  Huščava 
+- xjuram00 Martin Jura  
+- xlazor02 Juraj  Lazorík 
 
 Licence
 -------
