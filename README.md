@@ -15,4 +15,4 @@ fsociety
 Licence
 -------
 
-Tento program je poskytovan...
+This program is distributed under a [GNU General Public License v3.0](LICENSE).
