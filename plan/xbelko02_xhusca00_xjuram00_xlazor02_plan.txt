@@ -46,4 +46,10 @@ Komunikačné kanály a pravidlá:
 	Skupinový chat na Discorde, FB Messenger. Každú nedeľu pravidelný report o postupe na Discorde.
 
 Systém na správu verzií:
-	Github (https://github.com/). Náš repozitár https://github.com/duri488/IVS-Project2 (vlastník - xlazor02 - Juraj Lazorík). Pridali sme používateľa ivskontrola (https://github.com/ivskontrola) do repozitára (ako collaborator).
+	Github (https://github.com/). Náš repozitár https://github.com/duri488/IVS-Project2 (vlastník - xlazor02 - Juraj Lazorík).
+	Pridali sme používateľa ivskontrola (https://github.com/ivskontrola) do repozitára (ako collaborator).
+	Github nicks:
+		- xlazor02 = duri488
+		- xbelko02 = b3lix
+		- xjuram00 = DickerMax580
+		- xhusca00 = xhusca00
