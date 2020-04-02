@@ -41,6 +41,41 @@ class TestAdd:
 
     def test_addNotEqual(self):
         assert m.add(-2, -4) != 2
+
+
+class TestSubtraction:
+    def test_subEqual(self):
+        #kladne - kladne
+        assert m.sub(10, 3) == 7
+        assert m.sub(4, 3) == 1
+        assert m.sub(8, 4) == 4
+        assert m.sub(15, 6) == 9
+        assert m.sub(53, 25) == 28
+        assert m.sub(70, 42) == 28
+        assert m.sub(130, 65) == 65
+        assert m.sub(1111, 111) == 1000
+        assert m.sub(25485, 10254) == 15231
+
+        #kladne - zaporne, zaporne - kladne
+        assert m.sub(5, -3) == 8
+        assert m.sub(10, -5) == 15
+        assert m.sub(2, -8) == 10
+        assert m.sub(2, -1) == 3
+        assert m.sub(-8, 9) == -17
+        assert m.sub(2, -6) == 8
+        assert m.sub(-15, 15) == -30
+        assert m.sub(-253, 100) == -353
+        assert m.sub(35, -77) == 112
+        assert m.sub(2566, -1120) == 3686
+        assert m.sub(-9999, 1111) == -11110
+
+        #zaporne - zaporne
+        assert m.sub(-5, -8) == 3
+        assert m.sub(-30, -18) == -12
+        assert m.sub(-3, -7) == 4
+        assert m.sub(-301, -121) == -180
+        assert m.sub(-1025, -2555) == 1530
+        assert m.sub(-19796, -20123) == 327
         
         
 class TestDivide:
