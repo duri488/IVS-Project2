@@ -129,6 +129,75 @@ class TestSubtraction:
         assert m.subtraction(-40, -11) != 10
         assert m.subtraction(-4025, -46555) != 3.33
         assert m.subtraction(-1480.45, -6515612) != -12314
+
+class TestMultiplication:
+    def test_mulEqual(self):
+        #positive number & positive number
+        assert m.multiplication(0, 0) == 0
+        assert m.multiplication(0, 67) == 0
+        assert m.multiplication(9855, 0) == 0
+        assert m.multiplication(3, 4) == 12
+        assert m.multiplication(13, 6) == 78
+        assert m.multiplication(55, 23) == 1256
+        assert m.multiplication(647, 87) == 56289
+        assert m.multiplication(7472, 954) == 7128288
+
+        #positive number & negative number
+        assert m.multiplication(-5, 0) == 0
+        assert m.multiplication(0, -45) == 0
+        assert m.multiplication(-5, 12) == -60
+        assert m.multiplication(7, -43) == -301
+        assert m.multiplication(-76, 97) == -7372
+        assert m.multiplication(-56, 38) == -2128
+        assert m.multiplication(92, -111) == -10212
+        assert m.multiplication(-6574, 3759) == -24711666
+
+        #negative number & negative number
+        assert m.multiplication(-5, -1) == 5
+        assert m.multiplication(-3, -7) == 21
+        assert m.multiplication(-43, -5) == 215
+        assert m.multiplication(-3, -98) == 294
+        assert m.multiplication(-75, -28) == 2100
+        assert m.multiplication(-69, -55) == 3795
+        assert m.multiplication(-423, -30) == 12690
+        assert m.multiplication(-6, -666) == 3996
+        assert m.multiplication(-485, -608) == 294880
+        assert m.multiplication(-5034, -7837) == 39521991
+
+    def test_mulNotEqual(self):
+        #positive number & positive number
+        assert m.multiplication(0, 0) != 8
+        assert m.multiplication(53, 0) != 53
+        assert m.multiplication(0, 679) != 3
+        assert m.multiplication(4, 3) != 231
+        assert m.multiplication(76, 9) != 83
+        assert m.multiplication(45, 20) != 50
+        assert m.multiplication(653, 788) != 89043
+        assert m.multiplication(502, 3) != 10001
+        assert m.multiplication(3904, 2200) != 7849027
+
+        #positive number & negative number
+        assert m.multiplication(0, -5) != 8
+        assert m.multiplication(-22, 0) != 42
+        assert m.multiplication(4, -8) != -31
+        assert m.multiplication(25, -3) != 75
+        assert m.multiplication(80, -80) != -1616
+        assert m.multiplication(-71, 993) != 73922
+        assert m.multiplication(441, -2) != -655
+        assert m.multiplication(232, -391) != -74583
+        assert m.multiplication(-9563, -3068) != 392702
+
+        #negative number & negative number
+        assert m.multiplication(-3, -9) != 0
+        assert m.multiplication(-1, -5) != -5
+        assert m.multiplication(-4, -8) != 98
+        assert m.multiplication(-18, -7) != -40
+        assert m.multiplication(-36, -89) != 3689
+        assert m.multiplication(-328, -2) != -403
+        assert m.multiplication(-532, -439) != 903320
+        assert m.multiplication(-4345, -6821) != -28333745
+        assert m.multiplication(-73923, -4) != -38392
+
         
 class TestDivide:
     def test_divEqual(self):
