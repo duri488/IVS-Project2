@@ -337,3 +337,86 @@ class TestModulo:
         assert m.modulo(, ) !=
         assert m.modulo(, ) !=
         assert m.modulo(, ) !=
+
+class TestPower:
+    def test_powEqual(self):
+        #positive number & positive number
+        assert m.power(0, 0) == 1 
+        assert m.power(5, 0) == 1
+        assert m.power(7, 2) == 49
+        assert m.power(3, 5) == 243
+        assert m.power(0, 27) == 0 
+        assert m.power(35, 4) == 1500625
+        assert m.power(123, 1) == 123
+        assert m.power(609, 3) == 225866529
+
+        #positive number & negative number
+        assert m.power(0, -3) == "invaid input" 
+        assert m.power(2, -2) == 0.25
+        assert m.power(20, -1) == 0.05
+        assert m.power(5, -4) == 0.0016 
+        assert m.power(1, -5) == 1 
+        assert m.power(4, -6) == 0.00024414
+        assert m.power(2, -3) == 0.125
+        assert m.power(8, -2) == 0.015625 
+
+        #negative number & positive number
+        assert m.power(-2, 0) == -1
+        assert m.power(-3, 2) == -9
+        assert m.power(-7, 4) == -2401
+        assert m.power(-5, 1) == -5
+        assert m.power(-14, 2) == -196
+        assert m.power(-22, 3) == -10648
+        assert m.power(-5, 4) == -625
+        assert m.power(-15, 3) == -3375
+        
+        #negative number & negative number
+        assert m.power(-1, -1) == -1
+        assert m.power(-1, -89) == -1
+        assert m.power(-2, -3) == -0.125
+        assert m.power(-20, -2) == -0.0025
+        assert m.power(-4, -2) == -0.0625
+        assert m.power(-8, -1) == -0.125
+        assert m.power(-5, -2) == -0.04
+        assert m.power(-5, -1) == -0.2
+
+    def test_powNotEqual(self):
+        #positive number & positive number
+        assert m.power(0, 0) != 3
+        assert m.power(0, 2) != 1
+        assert m.power(21, 0) != 21
+        assert m.power(50, 5) != 55
+        assert m.power(23, 2) != 675
+        assert m.power(652, 1) != 1000
+        assert m.power(17, 8) != 34533346
+        assert m.power(84, 5) != 689239
+
+        #positive number & negative number
+        assert m.power(3, -1) != 0.5332
+        assert m.power(6, -6) != -0.4321
+        assert m.power(23, -1) != 0.64893
+        assert m.power(5, -4) != 2.445
+        assert m.power(32, -3) != -4583
+        assert m.power(66, -2) != -0.6892
+        assert m.power(4, -3) != 0.1124
+        assert m.power(86, -7) != 933
+
+        #negative number & positive number
+        assert m.power(-4, 5) != -20
+        assert m.power(-7, 2) != 50
+        assert m.power(-34, 0) != 1
+        assert m.power(-4, 2) != 16
+        assert m.power(-84, 4) != -5432123
+        assert m.power(-643, 0) != -643
+        assert m.power(-45, 3) != 632
+        assert m.power(-6325, 1) != 6325
+
+        #negative number & negative number
+        assert m.power(-1, -1) != -2
+        assert m.power(-3, -3) != -9
+        assert m.power(-23, -1) != -0.5333
+        assert m.power(-6, -3) != -0.000005
+        assert m.power(-2, -13) != -0.0353638
+        assert m.power(-43, -5) != -0.6373223
+        assert m.power(-5, -2) != 10
+        assert m.power(-74, -2) != -321321
