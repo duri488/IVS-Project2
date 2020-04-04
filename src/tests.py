@@ -235,4 +235,35 @@ class TestDivide:
         assert m.divide(-297416, -452) == 658
     
     def test_divNotEqual(self):
+        #postive number & negative number
         assert m.divide(12, 2) != 8
+        assert m.divide(90, 3) != 15
+        assert m.divide(15, 5) != 4
+        assert m.divide(6, 3) != 1
+        assert m.divide(225, 15) != 14
+        assert m.divide(333, 3) != 100
+        assert m.divide(1024, 256) != 5
+        assert m.divide(1568, 4) != 393
+        assert m.divide(177152, 346) != 500 
+
+        #positive number & negative number
+        assert m.divide(-12, 4) != 3
+        assert m.divide(18, -6) != 3
+        assert m.divide(25, -25) != 0
+        assert m.divide(56, -7) != 8
+        assert m.divide(234, -2) != -116
+        assert m.divide(-81, 9) != 9
+        assert m.divide(169, -13) != 13
+        assert m.divide(-1200, 4) != 300
+        assert m.divide(392702, -3068) != 9563
+        
+        #negative number & negative number
+        assert m.divide(-25, -5) != -5
+        assert m.divide(-32, -8) != 155
+        assert m.divide(-72, -6) != 13
+        assert m.divide(-121, -11) != -11
+        assert m.divide(-13952, -4) != 45668
+        assert m.divide(-156468, -5612) != 468412
+        assert m.divide(-4532, -1133) != -4
+        assert m.divide(-332688, -348) != -956
+        assert m.divide(-5943456, -4586) != 1300
