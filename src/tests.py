@@ -235,7 +235,7 @@ class TestDivide:
         assert m.divide(-297416, -452) == 658
     
     def test_divNotEqual(self):
-        #postive number & negative number
+        #postive number & positive number
         assert m.divide(12, 2) != 8
         assert m.divide(90, 3) != 15
         assert m.divide(15, 5) != 4
@@ -271,69 +271,69 @@ class TestDivide:
 class TestModulo:
     def test_modEqual(self):
         #positive number & positive number
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
+        assert m.modulo(5, 2) == 1
+        assert m.modulo(10, 4) == 2
+        assert m.modulo(21, 6) == 3
+        assert m.modulo(32, 3) == 2
+        assert m.modulo(153, 12) == 9
+        assert m.modulo(185, 13) == 3
+        assert m.modulo(2546, 25) == 21
+        assert m.modulo(33458, 16500) == 458
+        assert m.modulo(125485, 24555) == 2710
 
         #positive number & negative number
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
+        assert m.modulo(12, -5) == 2
+        assert m.modulo(27, -4) == 3
+        assert m.modulo(-36, 5) == -1
+        assert m.modulo(47, -7) == 5
+        assert m.modulo(-80, 23) == -11
+        assert m.modulo(123, -14) == 11
+        assert m.modulo(-256, 15) == -1
+        assert m.modulo(-48252, 1269) == -30
+        assert m.modulo(7026500, -9683) == 6325
 
         #negative number & negative number
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
-        assert m.modulo(, ) ==
+        assert m.modulo(-6, -4) == -2
+        assert m.modulo(-13, -5) == -3
+        assert m.modulo(-19, -4) == -3
+        assert m.modulo(-28, -12) == -4
+        assert m.modulo(-43, -19) == -5
+        assert m.modulo(-89, -23) == -20
+        assert m.modulo(-168, -13) == -12
+        assert m.modulo(-2496, -1342) == -1154
+        assert m.modulo(-15896, -2652) == -2636
 
     def test_modNotEqual(self):
         #positive number & positive number
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
+        assert m.modulo(4, 2) != 2
+        assert m.modulo(8, 3) != 1
+        assert m.modulo(12, 9) != 4
+        assert m.modulo(5, 2) != 0
+        assert m.modulo(45, 4) != 5
+        assert m.modulo(49, 7) != 7
+        assert m.modulo(149, 25) != 23
+        assert m.modulo(638, 125) != 40
+        assert m.modulo(2049, 459) != 3548
+        assert m.modulo(145986, 2462) != 0
 
         #positive number & negative number
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
+        assert m.modulo(5, -2) != -1
+        assert m.modulo(9, -5) != -4
+        assert m.modulo(16, -6) != -4
+        assert m.modulo(-82, 40) != 2
+        assert m.modulo(125, -24) != -5
+        assert m.modulo(-195, 128) != -15
+        assert m.modulo(-5489, 5489) != 1
+        assert m.modulo(18237, -6000) != -237
+        assert m.modulo(259453, -42149) != 0
 
         #negative number & negative number
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
-        assert m.modulo(, ) !=
+        assert m.modulo(-15, -4) != 3
+        assert m.modulo(-6, -4) != 2
+        assert m.modulo(-93, -21) != 9
+        assert m.modulo(-45, -13) != 6
+        assert m.modulo(-7, -5) != 2
+        assert m.modulo(-69, -42) != -28
+        assert m.modulo(-153, -122) != 122
+        assert m.modulo(-6548, -2555) != -1689
+        assert m.modulo(-48294, -48294) != 1
