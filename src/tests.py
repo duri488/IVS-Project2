@@ -267,3 +267,73 @@ class TestDivide:
         assert m.divide(-4532, -1133) != -4
         assert m.divide(-332688, -348) != -956
         assert m.divide(-5943456, -4586) != 1300
+
+class TestModulo:
+    def test_modEqual(self):
+        #positive number & positive number
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+
+        #positive number & negative number
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+
+        #negative number & negative number
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+        assert m.modulo(, ) ==
+
+    def test_modNotEqual(self):
+        #positive number & positive number
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+
+        #positive number & negative number
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+
+        #negative number & negative number
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
+        assert m.modulo(, ) !=
