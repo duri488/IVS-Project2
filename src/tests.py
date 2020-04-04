@@ -201,8 +201,38 @@ class TestMultiplication:
         
 class TestDivide:
     def test_divEqual(self):
+        #positive number & positive number
         assert m.divide(10, 5) == 2
+        assert m.divide(15, 3) == 5
+        assert m.divide(21, 7) == 3
+        assert m.divide(32, 4) == 8
+        assert m.divide(99, 3) == 33
+        assert m.divide(1152, 18) == 64
+        assert m.divide(0, 14568) == 0
+        assert m.divide(119658, 231) == 518
         assert m.divide(2, 0) == "Invalid input"
+
+        #positive number & negative number
+        assert m.divide(6, -3) == -2
+        assert m.divide(28, -7) == -4
+        assert m.divide(12, -2) == -6
+        assert m.divide(-18, 6) == -3
+        assert m.divide(-64, 8) == -8
+        assert m.divide(-110, 5) == -22
+        assert m.divide(294, -14) == -21
+        assert m.divide(3509, -121) == -29
+        assert m.divide(-37730, 154) == -245
+
+        #negative number & negative number
+        assert m.divide(-5, -5) == 1
+        assert m.divide(-14, -7) == 2
+        assert m.divide(-35, -7) == 5
+        assert m.divide(-81, -3) == 27
+        assert m.divide(-144, -6) == 24
+        assert m.divide(-256, -4) == 64
+        assert m.divide(-17848, -92) == 194
+        assert m.divide(-177152, -512) == 346
+        assert m.divide(-297416, -452) == 658
     
     def test_divNotEqual(self):
         assert m.divide(12, 2) != 8
