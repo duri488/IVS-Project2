@@ -420,3 +420,95 @@ class TestPower:
         assert m.power(-43, -5) != -0.6373223
         assert m.power(-5, -2) != 10
         assert m.power(-74, -2) != -321321
+
+class TestNthRoot:
+    def test_nthEqual(self):
+        #positive number & negative number
+        assert m.nthRoot(2, 4) == 2 
+        assert m.nthRoot(2, 25) == 5
+        assert m.nthRoot(2, 144) == 12
+        assert m.nthRoot(3, 27) == 3
+        assert m.nthRoot(3, 64) == 4
+        assert m.nthRoot(3, 729) == 9
+        assert m.nthRoot(4, 625) == 5
+        assert m.nthRoot(5, 7776) == 6
+        assert m.nthRoot(10, 1073741824) == 8 
+        #positive number & negative number
+        assert m.nthRoot(2, -3) == "Invalid input"
+        assert m.nthRoot(2, -144) == "Invalid input"
+        assert m.nthRoot(3, -27) == -3
+        assert m.nthRoot(3, -64) == -4
+        assert m.nthRoot(3, -13824) == -24
+        assert m.nthRoot(3, -1331) == -11
+        assert m.nthRoot(7, -279936) == -6
+        assert m.nthRoot(5, -371293) == -13
+        assert m.nthRoot(9, -134217728) == -8
+
+        #positive number & negative number
+        assert m.nthRoot(-2, 3) == 0.57735027
+        assert m.nthRoot(-2, 5) == 0.4472136
+        assert m.nthRoot(-2, 8) == 0.35355339
+        assert m.nthRoot(-2, 256) == 0.0625
+        assert m.nthRoot(-4, 345) == 0.23203058
+        assert m.nthRoot(-4, 425) == 0.22024333
+        assert m.nthRoot(-5, 152) == 0.3661266
+        assert m.nthRoot(-10, 512) == 0.53588673
+        assert m.nthRoot(-20, 388) == 0.74226403
+
+        #negative number & negative number
+        assert m.nthRoot(-2, -13) == "Invalid input"
+        assert m.nthRoot(-2, -66) == "Invalid input"
+        assert m.nthRoot(-2, -112) == "Invalid input"
+        assert m.nthRoot(-4, -98) == "Invalid input"
+        assert m.nthRoot(-4, -69) == "Invalid input"
+        assert m.nthRoot(-4, -6) == "Invalid input"
+        assert m.nthRoot(-5, -10) == -0.6309573
+        assert m.nthRoot(-10, -46) == -0.6819055
+        assert m.nthRoot(-20, 623) == -0.7248958
+
+    def test_nthNotEqual(self):
+        #positive number & negative number
+        assert m.nthRoot(2, 9) != 4
+        assert m.nthRoot(2, 0) != 1
+        assert m.nthRoot(2, 25) != 6
+        assert m.nthRoot(3, 64) != 5
+        assert m.nthRoot(3, 125) != 10
+        assert m.nthRoot(3, 216) != 7
+        assert m.nthRoot(4, 81) != 4
+        assert m.nthRoot(5, 3125) != -5
+        assert m.nthRoot(8, 43046721) != 10
+        
+        #positive number & negative number
+        assert m.nthRoot(2, -25) != -5
+        assert m.nthRoot(2, -36) != -6
+        assert m.nthRoot(2, -49) != -7 
+        assert m.nthRoot(4, -81) != -3
+        assert m.nthRoot(6, -46656) != -6
+        assert m.nthRoot(9, -262144) != -5
+        assert m.nthRoot(6, -2985984) != -12
+        assert m.nthRoot(15, -32768) != 2
+        assert m.nthRoot(17, -129140163) != 3
+
+        #negative number & positive number
+        assert m.nthRoot(-2, 25) != 0.3 
+        assert m.nthRoot(-2, 36) != 0.15
+        assert m.nthRoot(-2, 49) != 0.13
+        assert m.nthRoot(-3, 125) != 5
+        assert m.nthRoot(-3, 1000) != 10
+        assert m.nthRoot(-4, 23) != 0.5
+        assert m.nthRoot(-6, 48) != 1
+        assert m.nthRoot(-9, 456) != 45
+        assert m.nthRoot(-10, 1000000) != 25
+
+        #negative number & negative number
+        assert m.nthRoot(-2, -49) != -7
+        assert m.nthRoot(-2, -458) != -13
+        assert m.nthRoot(-2, -596) != 1
+        assert m.nthRoot(-4, -156) != -4.5
+        assert m.nthRoot(-6, -789) != 12
+        assert m.nthRoot(-8, -165546) != -128
+        assert m.nthRoot(-9, -369) != 2
+        assert m.nthRoot(-12, -45698) != 0.5
+        assert m.nthRoot(-20, -1354648) != 0.1
+        
+        
