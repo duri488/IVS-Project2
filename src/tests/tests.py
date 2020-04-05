@@ -541,5 +541,45 @@ class TestNthRoot:
         assert m.nthRoot(-9, -369) != 2
         assert m.nthRoot(-12, -45698) != 0.5
         assert m.nthRoot(-20, -1354648) != 0.1
-        
-        
+
+class TestFactorial:
+    def test_facEqualPositive(self):
+        #positive number
+        assert m.factorial(1) == 1
+        assert m.factorial(2) == 2
+        assert m.factorial(0) == 1
+        assert m.factorial(5) == 120
+        assert m.factorial(7) == 5040
+        assert m.factorial(10) == 3628800
+        assert m.factorial(12) == 479001600
+        assert m.factorial(13) == 6227020800
+
+    def test_facEqualNegative(self):
+        #negative number
+        assert m.factorial(-3) == "Invalid input"
+        assert m.factorial(-2) == "Invalid input"
+        assert m.factorial(-4) == "Invalid input"
+        assert m.factorial(-1) == "Invalid input"
+        assert m.factorial(-7) == "Invalid input"
+        assert m.factorial(-5) == "Invalid input"
+
+    def test_facNotEqualPositive(self):
+        #positive number
+        assert m.factorial(1) != 0
+        assert m.factorial(3) != 9
+        assert m.factorial(4) != 12
+        assert m.factorial(6) != -720
+        assert m.factorial(0) != 0
+        assert m.factorial(9) != 36288
+        assert m.factorial(11) != 7598364
+        assert m.factorial(14) != 6535333
+        assert m.factorial(5) != 25
+
+    def test_facNotEqualNegative(self):
+        #negative number
+        assert m.factorial(-2) != 4
+        assert m.factorial(-4) != 16
+        assert m.factorial(-6) != 45
+        assert m.factorial(-1) != 1
+        assert m.factorial(-5) != 625
+        assert m.factorial(-11) != 72528034
