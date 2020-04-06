@@ -1,5 +1,5 @@
 import pytest
-import mathlib as m
+import lib.mathlib as m
 
 # run with: "pytest -q tests.py" or "pytest tests.py"
 # class name have to start with "Test" otherwise it will be skipped
