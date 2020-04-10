@@ -3,11 +3,11 @@ from clcLib.calculatorUI import Ui_MainWindow
 import clcLib.mathlib as m
 import sys
 
-showOnDisplay = ""
 leftSide = ""
 rightSide = ""
 leftSideValue = ""
 rightSideValue = ""
+operator = ""
 operatorFlag = False
 errorFlag = False
 
@@ -28,7 +28,7 @@ class Logic(QMainWindow):
         self.ui.nineButton.clicked.connect(lambda x:self.numberClick("9"))
         self.ui.zeroButton.clicked.connect(lambda x:self.numberClick("0"))
         self.ui.pointButton.clicked.connect(lambda x:self.numberClick("."))
-        #self.ui.plusMinusButton.clicked.connect(lambda x:self.numberClick("."))
+        self.ui.plusMinusButton.clicked.connect(self.changeSign)
 
         self.ui.plusButton.clicked.connect(lambda x:self.numberClick("+"))
         self.ui.minusButton.clicked.connect(lambda x:self.numberClick("-"))
@@ -47,53 +47,53 @@ class Logic(QMainWindow):
         self.ui.equalButton.clicked.connect(self.equalClick)
 
     def numberClick(self,number):
-        global showOnDisplay
         global operatorFlag
         global leftSide
         global rightSide
         global errorFlag
         global leftSideValue
+        global operator
         #global rightSideValue
 
         if operatorFlag == False:
             if (number == "+" or number == "-" or number == "*" or number == "/" or number == "^" or number == '\u221A' or number == "mod" or number == "!"):
                 leftSideValue = eval(leftSide)
+                operator = str(number)
                 operatorFlag = True
             else:
                 leftSide = leftSide + str(number)
 
-            showOnDisplay = showOnDisplay + str(number)
-            self.ui.Display.setText(showOnDisplay)
+            self.ui.Display.setText(leftSide+operator+rightSide)
         else:
             if (number == "+" or number == "-" or number == "*" or number == "/" or number == "^" or number == '\u221A' or number == "mod" or number == "!"):
                 pass
             else:
-                if "!" in showOnDisplay:
+                if "!" in operator:
                     pass
                 else:
                     rightSide = rightSide + str(number)
-                    showOnDisplay = showOnDisplay + str(number)
-                    self.ui.Display.setText(showOnDisplay)
+                    self.ui.Display.setText(leftSide+operator+rightSide)
 
         self.ui.resultDisplay.setText("")
 
     def backClick(self):
-        global showOnDisplay
-        global leftSide
-        global rightSide
-        global operatorFlag
+        #global showOnDisplay
+        #global leftSide
+        #global rightSide
+        #global operatorFlag
 
-        if showOnDisplay:
-            if showOnDisplay[-1] == "+" or showOnDisplay[-1] == "-" or showOnDisplay[-1] == "*" or showOnDisplay[-1] == "/" or showOnDisplay[-1] == "^" or showOnDisplay[-1] == '\u221A' or showOnDisplay[-1] == "mod" or showOnDisplay[-1] == "!":
-                operatorFlag = False
-            else:
-                if not rightSide:
-                    leftSide = leftSide[:-1]
-                else:
-                    rightSide = rightSide[:-1]
+        #if showOnDisplay:
+        #    if showOnDisplay[-1] == "+" or showOnDisplay[-1] == "-" or showOnDisplay[-1] == "*" or showOnDisplay[-1] == "/" or showOnDisplay[-1] == "^" or showOnDisplay[-1] == '\u221A' or showOnDisplay[-1] == "mod" or showOnDisplay[-1] == "!":
+        #        operatorFlag = False
+        #    else:
+        #        if not rightSide:
+        #            leftSide = leftSide[:-1]
+        #        else:
+        #            rightSide = rightSide[:-1]
 
-            showOnDisplay = showOnDisplay[:-1]
-            self.ui.Display.setText(showOnDisplay)
+        #    showOnDisplay = showOnDisplay[:-1]
+        #    self.ui.Display.setText(showOnDisplay)
+        pass
         
     def cClick(self):
 
@@ -101,10 +101,33 @@ class Logic(QMainWindow):
 
         self.ui.Display.setText("0")
         self.ui.resultDisplay.setText("")
+
+    def changeSign(self):
+        global operator
+        global leftSide
+        global rightSide
+
+        if leftSide:
+            if not operator:
+                if leftSide[0] != "-":
+                    leftSide = "-"+leftSide
+                else:
+                    leftSide = leftSide[1:]
+            else:
+                if rightSide:
+                    if rightSide[0] != "-":
+                        rightSide = "-"+rightSide
+                    else:
+                        leftSide = rightSide[1:]
+            self.ui.Display.setText(leftSide+operator+rightSide)
+        else:
+            pass
+
+        
         
     def equalClick(self):
-        global showOnDisplay
         global operatorFlag
+        global operator
         global leftSide
         global rightSide
         global errorFlag
@@ -118,52 +141,54 @@ class Logic(QMainWindow):
         if errorFlag:
             result = "Invalid input"
         else:
-            if not leftSide or not rightSide:
+            if not leftSide:
                 result = "Invalid input"
-            elif '+' in showOnDisplay:
+
+            elif '!' in operator:
+                result = m.factorial(leftSideValue)
+
+            elif not rightSide:
+                result = "Invalid input"
+
+            elif '+' in operator:
                 result = m.add(leftSideValue,rightSideValue)
 
-            elif '-' in showOnDisplay:
+            elif '-' in operator:
                 result = m.subtraction(leftSideValue,rightSideValue)
 
-            elif '*' in showOnDisplay:
+            elif '*' in operator:
                 result = m.multiplication(leftSideValue,rightSideValue)
 
-            elif '/' in showOnDisplay:
+            elif '/' in operator:
                 result = m.divide(leftSideValue,rightSideValue)
 
-            elif '^' in showOnDisplay:
+            elif '^' in operator:
                 result = m.multiplication(leftSideValue,rightSideValue)
 
-            elif '\u221A' in showOnDisplay: #odmocnina
+            elif '\u221A' in operator: #odmocnina
                 result = m.nthRoot(leftSideValue,rightSideValue)
 
-            elif 'mod' in showOnDisplay:
+            elif 'mod' in operator:
                 result = m.modulo(leftSideValue,rightSideValue)
-
-            if '!' in showOnDisplay and not rightSide:
-                result = m.factorial(leftSideValue)
-            else:
-                result = "Invalid input"
 
         self.ui.resultDisplay.setText(str(result))
         clearEverything()
 
         
 def clearEverything():
-    global showOnDisplay
     global operatorFlag
     global leftSide
     global rightSide
     global errorFlag
     global leftSideValue
     global rightSideValue
+    global operator
 
-    showOnDisplay = ""
     leftSide = ""
     rightSide = ""
     leftSideValue = ""
     rightSideValue = ""
+    operator = ""
     operatorFlag = False
     errorFlag = False
 
