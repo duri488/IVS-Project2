@@ -1,6 +1,7 @@
 #definitions of math functions for calculator
 from math import ceil, floor
 
+PI = 3.14159265358979
 
 def add(a,b):
     return a+b

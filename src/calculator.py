@@ -57,7 +57,6 @@ class Logic(QMainWindow):
 
         if operatorFlag == False:
             if (number == "+" or number == "-" or number == "*" or number == "/" or number == "^" or number == '\u221A' or number == "mod" or number == "!"):
-                leftSideValue = eval(leftSide)
                 operator = str(number)
                 operatorFlag = True
             else:
@@ -77,23 +76,25 @@ class Logic(QMainWindow):
         self.ui.resultDisplay.setText("")
 
     def backClick(self):
-        #global showOnDisplay
-        #global leftSide
-        #global rightSide
-        #global operatorFlag
+        global operatorFlag
+        global leftSide
+        global rightSide
+        global errorFlag
+        global leftSideValue
+        global operator
 
-        #if showOnDisplay:
-        #    if showOnDisplay[-1] == "+" or showOnDisplay[-1] == "-" or showOnDisplay[-1] == "*" or showOnDisplay[-1] == "/" or showOnDisplay[-1] == "^" or showOnDisplay[-1] == '\u221A' or showOnDisplay[-1] == "mod" or showOnDisplay[-1] == "!":
-        #        operatorFlag = False
-        #    else:
-        #        if not rightSide:
-        #            leftSide = leftSide[:-1]
-        #        else:
-        #            rightSide = rightSide[:-1]
-
-        #    showOnDisplay = showOnDisplay[:-1]
-        #    self.ui.Display.setText(showOnDisplay)
-        pass
+        if rightSide:
+            rightSide = rightSide[:-1]
+            self.ui.Display.setText(leftSide+operator+rightSide)
+        elif operator:
+            operatorFlag = False
+            operator = ""
+            self.ui.Display.setText(leftSide+operator+rightSide)
+        elif leftSide:
+            leftSide = leftSide[:-1]
+            self.ui.Display.setText(leftSide+operator+rightSide)
+        else:
+            pass
         
     def cClick(self):
 
@@ -135,7 +136,23 @@ class Logic(QMainWindow):
         global rightSideValue
 
         if rightSide:
-            rightSideValue = eval(rightSide)
+            if "\u03C0" in rightSide:
+                if rightSide[0] == "-":
+                    rightSideValue =(-m.PI)
+                else:
+                    rightSideValue =(m.PI)
+            else:
+                rightSideValue = eval(rightSide)
+
+        if leftSide:
+            if "\u03C0" in leftSide:
+                if leftSide[0] == "-":
+                    leftSideValue =(-m.PI)
+                else:
+                    leftSideValue =(m.PI)
+            else:
+                leftSideValue = eval(leftSide)
+
         result=""
 
         if errorFlag:
@@ -163,13 +180,16 @@ class Logic(QMainWindow):
                 result = m.divide(leftSideValue,rightSideValue)
 
             elif '^' in operator:
-                result = m.multiplication(leftSideValue,rightSideValue)
+                result = m.power(leftSideValue,rightSideValue)
 
             elif '\u221A' in operator: #odmocnina
                 result = m.nthRoot(leftSideValue,rightSideValue)
 
             elif 'mod' in operator:
                 result = m.modulo(leftSideValue,rightSideValue)
+
+            if not operator and leftSide and not rightSide:
+                result = leftSideValue
 
         self.ui.resultDisplay.setText(str(result))
         clearEverything()
