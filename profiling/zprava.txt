@@ -1,0 +1,1 @@
+Na základe výsledkov profilingu smerodajnej odchýlky vieme určiť, že operácie umocnovňovania a sčítania sú najviac časovo náročné v našom programe. Z tohto dôvodu by sme sa mali zamerať na ich optimalizáciu.
