@@ -6,6 +6,12 @@ import random
 N = 0
 
 def generateSample(numberOfnumbers):
+
+    """
+    Funkcia na generovanie náhodných čísel pre smerodajnú odchýlku
+    :param numberOfnumbers: počet čísel ktoré chceme vygenerovať
+    """
+
     afile = open("input.txt", "w" )
 
     for i in range(numberOfnumbers):
@@ -16,6 +22,12 @@ def generateSample(numberOfnumbers):
 
 def profile(fnc):
     #decorator for profiling use @profile
+
+    """
+    Dekorátor pre vyvolanie profilingu danej funkcie
+    :param fnc: funkcia určená na profiling
+    :return: návratovú hodnotu funkcie z parametra
+    """
 
     def inner(*args, **kwargs):
 
@@ -34,6 +46,12 @@ def profile(fnc):
 
 @profile
 def Standard_deviation():
+
+    """
+    Funkcia na výpočet smerodajnej odchýlky zo štandardného vstupu(stdin)
+    :return: výslednú smerodajnú odchýlku pre zadané čísla
+    """
+
     global N
     sumSX = 0
     sumSX2 = 0
