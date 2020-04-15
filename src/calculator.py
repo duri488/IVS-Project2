@@ -12,7 +12,13 @@ operatorFlag = False
 errorFlag = False
 
 class Logic(QMainWindow):
+    """
+    Trieda ktorá dedí z triedy Ui_MainWindow a rozširuje ju o logickú funkcionalitu kalkulačky.
+    """
     def __init__(self):
+        """
+        Inicializácia kalkulačky a priradenie funkcionality tlačidlám
+        """
         super(Logic, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -47,13 +53,18 @@ class Logic(QMainWindow):
         self.ui.equalButton.clicked.connect(self.equalClick)
 
     def numberClick(self,number):
+
+        """
+        Funkcia na zaznamenávanie vstupu od uživateľa.
+        :param number: symbol tlačítka ktoré použil uživateľ
+        """
+
         global operatorFlag
         global leftSide
         global rightSide
         global errorFlag
         global leftSideValue
         global operator
-        #global rightSideValue
 
         if operatorFlag == False:
             if (number == "+" or number == "-" or number == "*" or number == "/" or number == "^" or number == '\u221A' or number == "mod" or number == "!"):
@@ -76,6 +87,11 @@ class Logic(QMainWindow):
         self.ui.resultDisplay.setText("")
 
     def backClick(self):
+
+        """
+        Funkcia na odstránenie posledného pridaného znaku.
+        """
+
         global operatorFlag
         global leftSide
         global rightSide
@@ -97,6 +113,9 @@ class Logic(QMainWindow):
             pass
         
     def cClick(self):
+        """
+        Funkcia zobrazí displej po vyčistení pamäte kalkulačky
+        """
 
         clearEverything()
 
@@ -104,6 +123,10 @@ class Logic(QMainWindow):
         self.ui.resultDisplay.setText("")
 
     def changeSign(self):
+
+        """
+        Funkcia na zmenu znamienka zadávaného čísla do kalkulačky.
+        """
         global operator
         global leftSide
         global rightSide
@@ -127,6 +150,9 @@ class Logic(QMainWindow):
         
         
     def equalClick(self):
+        """
+        Funkcia na vyhodnotenie zadaného príkladu v kalkulačke. Volá funkcie z matematickej knižnice mathlib.py
+        """
         global operatorFlag
         global operator
         global leftSide
@@ -194,8 +220,15 @@ class Logic(QMainWindow):
         self.ui.resultDisplay.setText(str(result))
         clearEverything()
 
+
+
         
 def clearEverything():
+
+    """
+    Táto funkcia vyčistí pamäť kalkulačky a všetky použité premenné
+    """
+
     global operatorFlag
     global leftSide
     global rightSide

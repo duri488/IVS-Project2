@@ -1,6 +1,10 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
+    """
+    Automaticky vygenerovaná trieda pomocou QT Designeru ktorá definuje GUI
+    """
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setWindowModality(QtCore.Qt.NonModal)
