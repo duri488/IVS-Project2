@@ -12,6 +12,7 @@ operatorFlag = False
 errorFlag = False
 
 class Logic(QMainWindow):
+    
     """
     Trieda ktorá dedí z triedy Ui_MainWindow a rozširuje ju o logickú funkcionalitu kalkulačky.
     """

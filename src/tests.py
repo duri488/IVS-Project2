@@ -6,6 +6,11 @@ import clcLib.mathlib as m
 # test name have to start with "test_" otherwise it will be skipped
 
 class TestAdd:
+
+    """
+    Trieda testov zameraných na testovanie funkcie add z knižnice mathlib
+    """
+
     def test_addEqualPositivePositive(self):
         #positive number & positive number
         assert m.add(2, 3) == 5
@@ -72,6 +77,12 @@ class TestAdd:
         assert m.add(-1484910, -6515612) != 1001
 
 class TestSubtraction:
+
+    """
+    Trieda testov zameraných na testovanie funkcie subtraction z knižnice mathlib
+    """
+
+
     def test_subEqualPositivePositive(self):
         #positive number & positive number
         assert m.subtraction(10, 3) == 7
@@ -138,6 +149,11 @@ class TestSubtraction:
         assert m.subtraction(-1480.45, -6515612) != -12314
 
 class TestMultiplication:
+
+    """
+    Trieda testov zameraných na testovanie funkcie multiplication z knižnice mathlib
+    """
+
     def test_mulEqualPositivePositive(self):
         #positive number & positive number
         assert m.multiplication(0, 0) == 0
@@ -210,6 +226,11 @@ class TestMultiplication:
         assert m.multiplication(-73923, -4) != -38392
 
 class TestDivide:
+
+    """
+    Trieda testov zameraných na testovanie funkcie divide z knižnice mathlib
+    """
+
     def test_divEqualPositivePositive(self):
         #positive number & positive number
         assert m.divide(10, 5) == 2
@@ -283,6 +304,11 @@ class TestDivide:
         assert m.divide(-5943456, -4586) != 1300
 
 class TestModulo:
+
+    """
+    Trieda testov zameraných na testovanie funkcie modulo z knižnice mathlib
+    """
+
     def test_modEqualPositivePositive(self):
         #positive number & positive number
         assert m.modulo(5, 2) == 1
@@ -357,6 +383,11 @@ class TestModulo:
         assert m.modulo(-48294, -48294) != 1 
 
 class TestPower:
+
+    """
+    Trieda testov zameraných na testovanie funkcie power z knižnice mathlib
+    """
+
     def test_powEqualPositivePositive(self):
         #positive number & positive number
         assert m.power(0, 0) == 1 
@@ -446,6 +477,11 @@ class TestPower:
         assert m.power(-74, -2) != -321321
 
 class TestNthRoot:
+
+    """
+    Trieda testov zameraných na testovanie funkcie nthRoot z knižnice mathlib
+    """
+
     def test_nthEqualPositivePositive(self):
         #positive number & negative number
         assert m.nthRoot(2, 4) == 2 
@@ -543,6 +579,11 @@ class TestNthRoot:
         assert m.nthRoot(-20, -1354648) != 0.1
 
 class TestFactorial:
+
+    """
+    Trieda testov zameraných na testovanie funkcie factorial z knižnice mathlib
+    """
+
     def test_facEqualPositive(self):
         #positive number
         assert m.factorial(1) == 1
