@@ -62,8 +62,7 @@ def modulo(a,b):
     :param b: celé(int) alebo desatínné(float) číslo
     :return: Modulo medzi číslami "a" a "b" (int alebo float)
     """
-
-    return a%b
+    return round((a%b),14) #natural round at 14th decimal place
 
 def power(base,x): #format base^x
 
@@ -97,9 +96,9 @@ def nthRoot(x,base): #format x-th root from base
         return"Invalid input"
 
     if base >= 0:
-        return round((base)**(1/x),14)
-    elif base < 0:
-        return round(-(abs(base)**(1/x)),14)
+        return round((base)**(1/x),14) #natural round at 14th decimal place
+    elif base < 0: 
+        return round(-(abs(base)**(1/x)),14) #natural round at 14th decimal place
         
  
     #return round((base)**(1/x),14)
@@ -120,6 +119,9 @@ def factorial(n: int) -> int:
     elif n == 0:
         return 1
     else:
-        for i in range(1,n + 1):
-            factorial = factorial*i
-        return factorial
+        try:
+            for i in range(1,n + 1):
+                factorial = factorial*i
+            return factorial
+        except:
+            return "Invalid input"

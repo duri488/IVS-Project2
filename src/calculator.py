@@ -24,6 +24,7 @@ class Logic(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        #connecting buttons to functions
         self.ui.oneButton.clicked.connect(lambda x:self.numberClick("1"))
         self.ui.twoButton.clicked.connect(lambda x:self.numberClick("2"))
         self.ui.threeButton.clicked.connect(lambda x:self.numberClick("3"))
@@ -43,8 +44,8 @@ class Logic(QMainWindow):
         self.ui.divButton.clicked.connect(lambda x:self.numberClick("/"))
         self.ui.powerButton.clicked.connect(lambda x:self.numberClick("^"))
 
-        self.ui.sqrtButton.clicked.connect(lambda x:self.numberClick('\u221A')) #odmocnina
-        self.ui.modButton.clicked.connect(lambda x:self.numberClick("mod"))
+        self.ui.sqrtButton.clicked.connect(lambda x:self.numberClick('\u221A')) #root symbol
+        self.ui.modButton.clicked.connect(lambda x:self.numberClick("%"))
         self.ui.unknownButton.clicked.connect(lambda x:self.numberClick("!"))
         self.ui.piButton.clicked.connect(lambda x:self.numberClick('\u03C0')) #pi
 
@@ -52,6 +53,36 @@ class Logic(QMainWindow):
         self.ui.cButton.clicked.connect(self.cClick)
 
         self.ui.equalButton.clicked.connect(self.equalClick)
+
+        self.ui.actionAbout_2.triggered.connect(self.popup)
+
+    def popup(self):
+        msg = QMessageBox()
+        msg.setWindowTitle("Nápoveda!")
+        msg.setText(
+"""
+Nápoveda!\n
+"+" - sčíta dve čísla (5+5)
+"-" - odčíta dve čísla (5-5)
+"*" - násobí dve čísla (5*5)
+"/" - delí dve čísla (5/5)
+"x^y" - umocňuje x na y (5^5)
+"\u221A" - n-tá odmocnina (2 \u221A 4)
+"%" - modulo dvoch čísel (5 mod 3)
+"n!" - faktoriál čísla n (5!)
+"\u03C0" - hodnota čísla PÍ(presnosť na 14 desatin. miest)
+"C" - vyčistí pamäť kalkulačky
+"\u232B" - vymaže posledný symbol výrazu
+"+/-" - zmení znamienko posledného čísla
+"." - desatinná čiarka
+"=" - vyhodnotí zadaný výraz
+
+Ak sa symbol nachádza na klávesnici,tak sa dá použiť\nako klávesová skratka.
+"""
+)
+        msg.setIcon(QMessageBox.Question)
+
+        x = msg.exec_()
 
     def numberClick(self,number):
 
@@ -67,21 +98,22 @@ class Logic(QMainWindow):
         global leftSideValue
         global operator
 
-        if operatorFlag == False:
-            if (number == "+" or number == "-" or number == "*" or number == "/" or number == "^" or number == '\u221A' or number == "mod" or number == "!"):
+
+        if operatorFlag == False:   #if there is no operator in expression - working with left side of expression
+            if (number == "+" or number == "-" or number == "*" or number == "/" or number == "^" or number == '\u221A' or number == "%" or number == "!"): #catching an operator
                 operator = str(number)
                 operatorFlag = True
-            else:
+            else:   #if its not operator its still left side of expression 
                 leftSide = leftSide + str(number)
 
             self.ui.Display.setText(leftSide+operator+rightSide)
-        else:
-            if (number == "+" or number == "-" or number == "*" or number == "/" or number == "^" or number == '\u221A' or number == "mod" or number == "!"):
-                pass
+        else:   #operator was inserted so we are working with right side of expression
+            if (number == "+" or number == "-" or number == "*" or number == "/" or number == "^" or number == '\u221A' or number == "%" or number == "!"):
+                pass    #we ignor adding second operator
             else:
-                if "!" in operator:
-                    pass
-                else:
+                if "!" in operator:     #special case for factorial(it has only left part of expression)
+                    pass    #ignoring everything after factorial symbol
+                else:   #adding next symbol to right side of expression
                     rightSide = rightSide + str(number)
                     self.ui.Display.setText(leftSide+operator+rightSide)
 
@@ -100,15 +132,16 @@ class Logic(QMainWindow):
         global leftSideValue
         global operator
 
+        #looking for side of expression user is currently inserting
         if rightSide:
-            rightSide = rightSide[:-1]
+            rightSide = rightSide[:-1]  #removing last symbol 
             self.ui.Display.setText(leftSide+operator+rightSide)
         elif operator:
-            operatorFlag = False
+            operatorFlag = False    #clearing operator value
             operator = ""
             self.ui.Display.setText(leftSide+operator+rightSide)
         elif leftSide:
-            leftSide = leftSide[:-1]
+            leftSide = leftSide[:-1]    #removing last symbol
             self.ui.Display.setText(leftSide+operator+rightSide)
         else:
             pass
@@ -133,17 +166,17 @@ class Logic(QMainWindow):
         global rightSide
 
         if leftSide:
-            if not operator:
-                if leftSide[0] != "-":
+            if not operator:    #if we have only left side we are changing sign there
+                if leftSide[0] != "-":  #checking first symbol and adding or removing "-" sign
                     leftSide = "-"+leftSide
                 else:
                     leftSide = leftSide[1:]
-            else:
-                if rightSide:
-                    if rightSide[0] != "-":
+            else:   
+                if rightSide: #we have also right side so we are changing sign there
+                    if rightSide[0] != "-": #checking first symbol and adding or removing "-" sign
                         rightSide = "-"+rightSide
                     else:
-                        leftSide = rightSide[1:]
+                        rightSide = rightSide[1:]
             self.ui.Display.setText(leftSide+operator+rightSide)
         else:
             pass
@@ -162,23 +195,9 @@ class Logic(QMainWindow):
         global leftSideValue
         global rightSideValue
 
-        if rightSide:
-            if "\u03C0" in rightSide:
-                if rightSide[0] == "-":
-                    rightSideValue =(-m.PI)
-                else:
-                    rightSideValue =(m.PI)
-            else:
-                rightSideValue = eval(rightSide)
+        rightSideValue = SideValue(rightSide)
 
-        if leftSide:
-            if "\u03C0" in leftSide:
-                if leftSide[0] == "-":
-                    leftSideValue =(-m.PI)
-                else:
-                    leftSideValue =(m.PI)
-            else:
-                leftSideValue = eval(leftSide)
+        leftSideValue = SideValue(leftSide)
 
         result=""
 
@@ -188,6 +207,7 @@ class Logic(QMainWindow):
             if not leftSide:
                 result = "Invalid input"
 
+            #calling functions from mathlib based on operator value
             elif '!' in operator:
                 result = m.factorial(leftSideValue)
 
@@ -209,19 +229,34 @@ class Logic(QMainWindow):
             elif '^' in operator:
                 result = m.power(leftSideValue,rightSideValue)
 
-            elif '\u221A' in operator: #odmocnina
+            elif '\u221A' in operator: #root symbol
                 result = m.nthRoot(leftSideValue,rightSideValue)
 
-            elif 'mod' in operator:
+            elif '%' in operator:
                 result = m.modulo(leftSideValue,rightSideValue)
 
-            if not operator and leftSide and not rightSide:
+            if not operator and leftSide and not rightSide: # if user inserted only one number without operator
                 result = leftSideValue
 
         self.ui.resultDisplay.setText(str(result))
         clearEverything()
 
+def SideValue(side):
 
+    """
+    Funkcia transformuje zadaný vstup od uživateľa na jeho hodnotu
+    :param side: vstup danej strany zadaný uživateľom
+    :return: hodnota výrazu danej strany 
+    """
+
+    if side:
+        if "\u03C0" in side: #kontrola pre výskyt symbolu "pí" vo výraze
+            if side[0] == "-":
+                return (-m.PI)
+            else:
+                return (m.PI)
+        else:
+            return eval(side)
 
         
 def clearEverything():
@@ -238,6 +273,8 @@ def clearEverything():
     global rightSideValue
     global operator
 
+
+    #clearing all variables
     leftSide = ""
     rightSide = ""
     leftSideValue = ""
