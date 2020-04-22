@@ -57,6 +57,10 @@ class Logic(QMainWindow):
         self.ui.actionAbout_2.triggered.connect(self.popup)
 
     def popup(self):
+        """
+        Funkcia ktorá vytvára okno nápovedy a jej obsah
+        """
+
         msg = QMessageBox()
         msg.setWindowTitle("Nápoveda!")
         msg.setText(
@@ -245,6 +249,7 @@ def SideValue(side):
 
     """
     Funkcia transformuje zadaný vstup od uživateľa na jeho hodnotu
+    
     :param side: vstup danej strany zadaný uživateľom
     :return: hodnota výrazu danej strany 
     """
