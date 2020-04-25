@@ -1,1 +1,25 @@
-tento soubor bude obsahovat rozdil mezi planem projektu a skutecnosti
+Termíny stanovené v pláne sme dodržali až na pár drobností. Niektoré veci sme dokončili až po dohodnutom termíne, ale väčšinou to bolo iba doladenie drobností alebo chýb deň po termíne.
+
+Rozdelenie úloh sa na rozdiel od plánu zmenilo tak, aby čo najlepšie vyhovovalo všetkým členom tímu:
+
+xlazor02 - Vytvorenie Git repozitára
+	 - GUI a matematické operácie
+
+xbelko02 - Od/Inštalátor aplikácie
+	 - Uživateľská dokumentácia
+	 - Vytvorenie Makefile
+	 - Testy
+
+xjuram00 - Profiling
+	 - Testy
+	 - Mockup
+	 - Programová dokumentácia (Sphinx)
+
+xhusca00 - Vytvorenie Readme file
+	 - Testy
+
+S komunikáciou nenastali žiadne problémy, využívali sa všetky stanovené komunikačné kanály podľa plánu.
+Pravidelný report sme dokonca robili častejšie ako sme plánovali.
+
+Nenastali žiadne problémy pri práci so systémom pre správu verzií.
+Niektorí členovia prispievali na github viac, niektorí menej ale spoločne sme sa s ním vďaka tomuto predmetu naučili pracovať.
