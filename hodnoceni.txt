@@ -1,4 +1,4 @@
-xbelko02 100 (Od/Inštalátor aplikácie, uživateľská dokumentácia, Makefile, Testy)
-xhusca00 100 (Vytvorenie Readme file, Testy)
-xjuram00 100 (Profiling, Testy, Mockup, Programová dokumentácia (Sphinx))
-xlazor02 100 (GUI a matematické operácie)
+xbelko02 110 (Od/Inštalátor aplikácie, uživateľská dokumentácia, Makefile, Testy)
+xhusca00 60 (Vytvorenie Readme file, Testy)
+xjuram00 110 (Profiling, Testy, Mockup, Programová dokumentácia (Sphinx))
+xlazor02 120 (GUI a matematické operácie)

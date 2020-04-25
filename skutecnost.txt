@@ -20,6 +20,7 @@ xhusca00 - Vytvorenie Readme file
 
 S komunikáciou nenastali žiadne problémy, využívali sa všetky stanovené komunikačné kanály podľa plánu.
 Pravidelný report sme dokonca robili častejšie ako sme plánovali.
+Využili sme aj emailovú komunikáciu.
 
 Nenastali žiadne problémy pri práci so systémom pre správu verzií.
 Niektorí členovia prispievali na github viac, niektorí menej ale spoločne sme sa s ním vďaka tomuto predmetu naučili pracovať.
