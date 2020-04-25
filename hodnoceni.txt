@@ -1,4 +1,4 @@
-xbelko02 100 (základ GUI a základní mat. operace)
-xhusca00 100 (pokročilé mat. operace)
-xjuram00 100 (profiling, instalátor)
-xlazor02 100 (testy, dokumentace)
+xbelko02 100 (Od/Inštalátor aplikácie, uživateľská dokumentácia, Makefile, Testy)
+xhusca00 100 (Vytvorenie Readme file, Testy)
+xjuram00 100 (Profiling, Testy, Mockup, Programová dokumentácia (Sphinx))
+xlazor02 100 (GUI a matematické operácie)
